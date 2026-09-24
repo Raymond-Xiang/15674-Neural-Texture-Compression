@@ -38,7 +38,7 @@ saved-checkpoint mechanism: every run trains its model from scratch.
 python s3tc.py
 ```
 
-Edit `texture_names` at the bottom of the file to the texture(s) you want
+Edit `textures` at the bottom of the file to the texture(s) you want
 first. Runs the S3TC baseline on each, prints PSNR and compression ratio
 against the raw texture, and saves a side-by-side original-vs-reconstruction
 PNG per texture.
@@ -49,14 +49,14 @@ PNG per texture.
 python train.py
 ```
 
-Edit `texture_names` and the model-size setting at the bottom of the file
+Edit `textures` and the model-size setting at the bottom of the file
 first. Trains a `NeuralTexture` (grid + MLP) on each listed texture for 2000
 steps (batch size 16384, Adam, lr=1e-2) from scratch, then prints final PSNR
 and compression ratio.
 
 **P6 — full results grid (3 textures × 3 sizes)**
 
-Set `texture_names` to all three provided textures, then run `train.py` once
+Set `textures` to all three provided textures, then run `train.py` once
 per model size (`small`, `medium`, `large`), changing the size setting
 between runs — nine runs total. There's currently no single script that
 sweeps all nine sizes/textures automatically; running `train.py` nine times
@@ -70,7 +70,7 @@ python train_quantized.py
 
 Independent of `train.py` — it trains a fresh `NeuralTexture` from scratch and then quantizes the
 stored grid values from float32 to 8-bit.
-Edit `texture_names` and the size setting at the bottom of the file first.
+Edit `textures` and the size setting at the bottom of the file first.
 
 **P8 — your own textures**
 
