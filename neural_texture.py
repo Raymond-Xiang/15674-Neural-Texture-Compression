@@ -3,9 +3,9 @@ from feature_grid import FeatureGrid
 from decoder_mlp import ColorMLP
 
 class NeuralTexture(nn.Module):
-    def __init__(self):
+    def __init__(self, resolutions, feat_dim):
         super().__init__()
-        self.grid = FeatureGrid()
+        self.grid = FeatureGrid(resolutions=resolutions, feat_dim=feat_dim)
         self.mlp  = ColorMLP(self.grid.out_dim)
     def forward(self, uv):
         return self.mlp(self.grid(uv))

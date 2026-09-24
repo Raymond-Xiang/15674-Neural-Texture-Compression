@@ -1,4 +1,5 @@
-bricks*.png
-clouds*.png
-gradient*.png
+*.png
+*.jpg
+
 .DS_Store
+__pycache__*
